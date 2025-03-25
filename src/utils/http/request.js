@@ -25,14 +25,15 @@ service.interceptors.request.use(
 // 响应拦截器
 service.interceptors.response.use(
   (response) => {
-    if (response.data.code !== '200') {
-      // 假设业务状态码200为成功
-      return Promise.reject(response.data)
-    }
+    // if (response.data.code !== '200') {
+    //   // 假设业务状态码200为成功
+    //   return Promise.reject(response.data)
+    // }
     return response.data
   },
   (error) => {
     // 统一错误处理（示例）
+
     if (error.response.status === '601') {
       // 清除token
       const tokenStore = useTokenStore()
